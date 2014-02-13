@@ -19,13 +19,13 @@ class sysstat::install {
       augeas { '/etc/default/sysstat':
       context => '/files/etc/default/sysstat/',
       changes => 'set ENABLED true',
-      require => Package['sysstat'],}
+      require => Package[$sysstat::params::sysstat_package],}
   }
   default: {
     package { $sysstat::params::sysstat_package:
     ensure => present, }
-     }
-   }
+  }
+  }
 }
 
 
